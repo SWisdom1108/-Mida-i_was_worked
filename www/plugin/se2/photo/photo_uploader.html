@@ -1,0 +1,39 @@
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<title>사진 첨부하기 :: SmartEditor2</title>
+	<link rel="stylesheet" type="text/css" href="/plugin/fontawesome/all.min.css">
+	<link type="text/css" rel="stylesheet" href="/css/common.css">
+</head>
+
+<style>
+
+	html, body { min-width: 100%; background-color: #FFF; }
+	
+</style>
+
+<body>
+	<div style="width: 100%; float: left; padding: 30px 40px;">
+		<div style="width: 100%; float: left; margin-bottom: 50px;">
+			<h1><i class="fas fa-camera-retro"></i> 사진 첨부하기</h1>
+		</div>
+
+		<form id="editor_upimage" name="editor_upimage" action="FileUploader.php" method="post" enctype="multipart/form-data" onSubmit="return false;">
+			<input type="file" class="upload" id="uploadInputBox" name="Filedata" accept="image/*">
+			<label for="uploadInputBox" class="typeBtn btnOrange"><i class="fas fa-upload"></i>업로드</label>
+			<p style="width: 100%; float: left; font-size: 16px; margin-top: 10px;"><b>10MB</b>이하의 이미지 파일만 등록할 수 있습니다.<br>(JPG, GIF, PNG, BMP)</p>
+		</form>
+
+		<div style="width: 100%; float: left; margin-top: 20px;">
+			<button type="button" class="typeBtn btnIndigo" id="btn_confirm" style="margin-right: 5px;">확인</button>
+			<button type="button" class="typeBtn btnGray02" id="btn_cancel">취소</button>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="jindo.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="jindo.fileuploader.js" charset="utf-8"></script>
+	<script type="text/javascript" src="attach_photo.js" charset="utf-8"></script>
+</body>
+</html>

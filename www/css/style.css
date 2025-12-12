@@ -1,0 +1,725 @@
+/* 멤버스영역 ( 로그인 , 회원가입, 아이디 및 비밀번호 찾기 공용 ) */
+#membersWrap { position: fixed; width: 100%; height: 100%; left: 0; top: 0; background-color: #354C8E; display: table; }
+#membersWrap > div { width: 100%; height: 100%; display: table-cell; text-align: center; vertical-align: middle; }
+#membersWrap > div.background { background-color: rgba(0, 0, 0, 0.2); position: absolute; }
+
+#membersBox { width: 1000px; height: 488px; background-color: rgb(255, 255, 255); display: inline-block; box-shadow: rgba(0, 0, 0, 0.53) 0px 0px 80px; }
+#membersBox.join { height: 710px; }
+
+#membersBox > .visualWrap { width: 440px; height: 100%; float: left; }
+#membersBox > .visualWrap > .bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 2; }
+#membersBox > .visualWrap > .bgWrap { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+#membersBox > .visualWrap > .bgDarkWrap { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.6; z-index: 3; }
+#membersBox > .visualWrap > .logo { position: absolute; top:50%; left:50%; transform: translate(-50%,-50%); z-index: 4; max-width: 100%;}
+
+#membersBox > .formWrap { width: calc(100% - 440px); height: 100%; float: left; padding: 0 110px; }
+#membersBox > .formWrap > div { width: 100%; float: left; }
+
+#membersBox > .formWrap > .copyrightWrap { position: absolute; left: 0; bottom: 25px; color: #CCC; font-size: 12px; font-weight: 500; }
+
+#membersBox > .formWrap > .titWrap { height: 21px; margin-top: 100px; margin-bottom: 20px; text-align: left; border-left: 2px solid #333; padding-left: 10px; }
+#membersBox > .formWrap > .titWrap > span { font-weight: bold; font-size: 16px; color: #333; }
+#membersBox > .formWrap > .titWrap > span.point { color: #354C8E; }
+
+#membersBox > .formWrap > .inputWrap > input { width: 100%; height: 40px; float: left; border: 1px solid #E1E1E1; background-color: #F4F4F4; padding: 0 15px; font-size: 14px; letter-spacing: -0.5px; color: #666; margin-bottom: 10px; }
+#membersBox > .formWrap > .inputWrap > input.btninput { width: 74%; }
+#membersBox > .formWrap > .inputWrap > input:focus { transition: border 0.5s; border: 1px solid #354C8E; }
+#membersBox > .formWrap > .inputWrap > input::placeholder { color: #BBB; }
+#membersBox > .formWrap > .inputWrap > span { width: 100%; float: left; font-size: 13px; font-weight: bold; text-align: left; margin-bottom: 3px; }
+#membersBox > .formWrap > .inputWrap > span.important::before { content: "*"; color: #DC3333; margin-right: 2px; }
+#membersBox > .formWrap > .inputWrap > button { width: 25%; height: 40px; float: left; margin-left: 1%; background-color: #AAA; color: #FFF; font-weight: bold; font-size: 14px; }
+
+#membersBox > .formWrap > .btnWrap { margin-top: 5px; }
+#membersBox > .formWrap > .btnWrap > button { width: 100%; height: 40px; float: left; background-color: #354C8E; color: #FFF; font-weight: bold; font-size: 14px; }
+#membersBox > .formWrap > .btnWrap > button > i { margin-right: 5px; }
+
+#membersBox > .formWrap > .saveWrap { margin-top: 12px; }
+#membersBox > .formWrap > .saveWrap > label { font-size: 14px; color: #404040; }
+#membersBox > .formWrap > .saveWrap > label > i { float: left; top: 3px; margin-right: 5px; }
+#membersBox > .formWrap > .saveWrap > label > i.off { color: #AAA; }
+#membersBox > .formWrap > .saveWrap > label > i.on { color: #354C8E; }
+#membersBox > .formWrap > .saveWrap > label > span { float: left; }
+
+/* 존재하지 않는 페이지 */
+#pageNotFound { width: 100%; float: left; }
+#pageNotFound > div { text-align: center; width: 100%; float: left; }
+
+#pageNotFound > .conWrap { font-size: 18px; font-weight: 300; letter-spacing: -1px; color: #666; }
+#pageNotFound > .conWrap > b { font-weight: 500; color: #DC3333; margin-right: 5px; }
+
+#pageNotFound > .iconWrap { height: 200px; }
+#pageNotFound > .iconWrap > i { font-size: 150px; position: absolute; left: 25%; top: 0; color: #CCC; opacity: 0; transition: all 0.5s; margin-left: 0; }
+#pageNotFound > .iconWrap > i.active { left: 50%; opacity: 1; margin-left: -93.5px; }
+#pageNotFound > .iconWrap > i.activeEnd { left: 70%; opacity: 0; margin-left: 0; }
+
+/* 데이터 간단정리표 */
+.dataInfoSimpleWrap { width: 100%; float: left; border: 3px solid #DFDFDF; padding: 25px 0; margin-bottom: 35px; }
+.dataInfoSimpleWrap > div { width: 100%; display: table; }
+.dataInfoSimpleWrap > div > div { height: 50px; display: table-cell; vertical-align: middle; }
+
+.dataInfoSimpleWrap .iconWrap { width: 150px; border-right: 1px solid #E1E1E1; text-align: center; }
+.dataInfoSimpleWrap .iconWrap > i { color: #C8C8C8; font-size: 31px; }
+
+.dataInfoSimpleWrap .conWrap > ul { width: 100%; float: left; }
+.dataInfoSimpleWrap .conWrap > ul > li { float: left; margin-left: 40px; }
+.dataInfoSimpleWrap .conWrap > ul > li > span { float: left; font-size: 17px; font-weight: bold; }
+.dataInfoSimpleWrap .conWrap > ul > li > span > span { font-weight: 400; }
+.dataInfoSimpleWrap .conWrap > ul > li > .label { color: #333; margin-right: 20px; }
+.dataInfoSimpleWrap .conWrap > ul > li > .value { color: #6B7CC4; letter-spacing: -0.5px; }
+ 
+.dataInfoSimpleWrap .btnWrap { width: 260px; border-left: 1px solid #E1E1E1; padding: 0 30px; }
+.dataInfoSimpleWrap .btnWrap > * { width: 200px; height: 50px; line-height: 50px; font-size: 17px; }
+
+/* 데이터 검색영역 */
+.searchWrap { width: 100%; float: left; border: 1px solid #EDEDED; padding: 30px 0; margin-bottom: 60px; }
+.searchWrap > form { width: 100%; float: left; }
+
+.searchWrap .formWrap { width: 100%; float: left; padding-left: 50px; }
+.searchWrap .formWrap > li { width: 100%; float: left; margin-bottom: 7px; }
+.searchWrap .formWrap > li:last-of-type { margin-bottom: 0; }
+.searchWrap .formWrap > li > * { float: left; }
+.searchWrap .formWrap > li > .label { width: 80px; height: 35px; line-height: 35px; font-size: 15px; font-weight: bold; color: #333; }
+.searchWrap .formWrap > li > select { margin-right: 10px; }
+.searchWrap .formWrap > li > .value { width: 500px; }
+.searchWrap .formWrap > li > .s_date { width: 140px; }
+.searchWrap .formWrap > li > .e_date { width: 140px; margin-right: 20px; }
+.searchWrap .formWrap > li > .hypen { width: 25px; height: 35px; float: left; line-height: 35px; color: #666; font-weight: 500; font-size: 16px; text-align: center; }
+.searchWrap .formWrap > li > .dateBtn { width: 50px; height: 35px; float: left; line-height: 35px; color: #333; font-weight: bold; font-size: 13px; text-align: center; cursor: pointer; background-color: #EBEBEB; margin-right: 7px; }
+.searchWrap .formWrap > li > .dateBtn:hover { background-color: #DDD; }
+
+.searchWrap .btnWrap { position: absolute; right: 0; top: 50%; padding: 0 65px; border-left: 1px solid #E1E1E1; margin-top: -17.5px; }
+.searchWrap .btnWrap > * { width: 130px; }
+
+/* 데이터 검색영역 */
+.simpleSearchWrap { width: 100%; float: left; margin-top: 50px; }
+.simpleSearchWrap > form { width: 100%; float: left; border: 1px solid #EAEAEA; text-align: center; padding: 35px 0; }
+.simpleSearchWrap > form > * { display: inline-block; float: none; margin: 0 3px; }
+.simpleSearchWrap > form > input { width: 300px; }
+
+/* 데이터 목록영역 */
+.listWrap { width: 100%; float: left; }
+.listWrap img { max-width: 100%; }
+.listWrap > .info { width: 100%; float: left; font-size: 15px; color: #AAA; margin-top: 40px; margin-bottom: 15px; border: 3px solid #CCC; font-weight: 500; text-align: center; padding: 15px; }
+.listWrap > .info:first-of-type { margin-top: 0; }
+.listWrap > .info > span { letter-spacing: -0.5px; font-weight: bold; }
+.listWrap > table { width: 100%; float: left; border-top: 2px solid #DEDEDE; }
+.listWrap > .tit { width: 100%; float: left; font-size: 16px; font-weight: bold; color: #000; padding-bottom: 6px; margin-top: 60px; }
+.listWrap > .tit:first-of-type { margin-top: 0; }
+
+.listWrap > table > thead > tr > th { font-size: 13px; font-weight: bold; color: #333; border-right: 1px solid #FFF; padding: 10px 0; text-align: center; vertical-align: middle; }
+.listWrap > table > thead > tr > th:last-of-type { border-right: 0; }
+.listWrap > table > thead > tr:nth-of-type(1) > th { background-color: #F3F3F3; }
+.listWrap > table > thead > tr:nth-of-type(2) > th { background-color: #EAEAEA; border-top: 1px solid #FFF; }
+
+.listWrap > table > tbody > tr.rowMove { cursor: pointer; }
+.listWrap > table > tbody > tr.rowMove:hover > td { background-color: #FBFBFB; }
+.listWrap > table > tbody > tr > td { font-size: 13px; font-weight: 400; color: #666; border-bottom: 1px solid #EFEFEF; border-right: 1px solid #EEE; text-align: center; padding: 7px; word-break: break-all; }
+.listWrap > table > tbody > tr:last-of-type > * { border-bottom: 1px solid #E3E3E3; }
+.listWrap > table > tbody > tr > td.no { color: #CCC; }
+.listWrap > table > tbody > tr > td.tl { text-align: left; }
+.listWrap > table > tbody > tr > td:last-of-type { border-right: 0; }
+
+.listWrap > table td i.none { color: #E9E9E9; }
+
+.listWrap > table td i.click { opacity: 0.8; }
+.listWrap > table td i.click:hover { opacity: 1; }
+
+.listWrap > table td i.dbCsBtnY { color: #CCC; }
+
+.listWrap > table td.stopProgram { cursor: default; }
+
+.listEtcWrap { width: 100%; float: left; margin-bottom: 7px; }
+.listEtcWrap > .right > * { margin-left: 10px; }
+.listEtcWrap > .left > .cnt { height: 35px; line-height: 35px; float: left; color: #333; font-weight: bold; font-size: 14px; }
+
+/* 데이터 작성영역 */
+.writeWrap { width: 100%; float: left; }
+.writeWrap img { max-width: 100%; }
+.writeWrap form { width: 100%; float: left; }
+.writeWrap .tit { width: 100%; float: left; font-size: 16px; font-weight: bold; color: #000; padding-bottom: 6px; margin-top: 60px; }
+.writeWrap .tit:first-of-type { margin-top: 0; }
+.writeWrap .tit > i { margin-right: 5px; }
+.writeWrap table { width: 100%; float: left; border-top: 2px solid #DEDEDE; }
+.writeWrap table.bgRed th { background-color: #FFF3F3 !important; }
+.writeWrap table.bgRed .miniGuideWrap > .guideBtn { color: #DC3333 !important; }
+
+.writeWrap table th { font-size: 13px; font-weight: bold; color: #333; border-bottom: 1px solid #EFEFEF; background-color: #F8F8F8; text-align: left; vertical-align: top; padding: 13px 18px; }
+.writeWrap table th.important::before { content: "*"; color: #DC3333; margin-right: 2px; }
+.writeWrap table td { font-size: 13px; font-weight: 400; color: #666; border-bottom: 1px solid #EFEFEF; padding: 10px 15px; }
+.writeWrap table td.tl { text-align: left; }
+.writeWrap table tr:last-of-type > * { border-bottom: 1px solid #E3E3E3; }
+
+.writeWrap > .info { width: 100%; float: left; font-size: 13px; color: #AAA; border: 3px solid #CCC; font-weight: 500; text-align: center; padding: 15px; }
+.writeWrap > .info i { margin-right: 5px; }
+
+.cntControlerWrap { width: 100%; float: left; -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select: none; text-align: center; }
+.cntControlerWrap > * { float: left; }
+.cntControlerWrap > i { width: 35px; background-color: #F5F5F5; color: #BBB; border: 1px solid #CCC; font-size: 14px; height: 35px; line-height: 35px; cursor: pointer; }
+.cntControlerWrap > input { width: 80px !important; border: 1px solid #CCC !important; border-left: 0 !important; border-right: 0 !important; height: 35px; text-align: center; font-weight: bold; }
+
+/* 데이터 정보영역 */
+.viewWrap { width: 100%; float: left; }
+.viewWrap img { max-width: 100%; }
+.viewWrap > .tit { width: 100%; float: left; font-size: 16px; font-weight: bold; color: #000; padding-bottom: 6px; margin-top: 60px; }
+.viewWrap > .tit:first-of-type { margin-top: 0; }
+.viewWrap > .tit > i { margin-right: 5px; }
+.viewWrap > table { width: 100%; float: left; border-top: 2px solid #DEDEDE; }
+.viewWrap > table.bgRed th { background-color: #FFF3F3 !important; }
+.viewWrap > table.bgRed .miniGuideWrap > .guideBtn { color: #DC3333 !important; }
+
+.viewWrap > table th { font-size: 13px; font-weight: bold; color: #333; border-bottom: 1px solid #EFEFEF; background-color: #F8F8F8; text-align: left; vertical-align: top; padding: 13px 18px; }
+.viewWrap > table th.cs { border-bottom: 1px solid #E6E6E6; }
+.viewWrap > table td { font-size: 13px; font-weight: 400; color: #666; border-bottom: 1px solid #EFEFEF; padding: 10px 15px; text-align: left; }
+.viewWrap > table tr:last-of-type > * { border-bottom: 1px solid #E3E3E3; }
+
+/* 버튼 영역 */
+.dataBtnWrap { width: 100%; min-height: 60px; float: left; background-color: #F9F9F9; padding: 15px 10px; }
+
+.dataBtnWrap > .left > * { margin-right: 5px; }
+.dataBtnWrap > .left > .line { width: 1px; height: 35px; float: left; background-color: #CCC; margin: 0 15px; }
+.dataBtnWrap > .left > .big { width: 160px; font-size: 15px; }
+.dataBtnWrap > .left > .small { width: 100px; font-size: 13px; }
+
+.dataBtnWrap > .right > * { margin-left: 5px; }
+
+/* 팝업 영역 */
+.popupWrap { position: fixed; width: 100%; height: 100%; left: 0; top: 0; z-index: 100; background-color: rgba(0, 0, 0, 0.4); display: none; }
+.popupWrap > .popupBox { position: absolute; width: 1200px; height: 700px; left: 50%; top: 50%; margin-top: -350px; margin-left: -600px; background-color: #FFF; }
+
+.popupWrap > .popupBox > .titWrap { width: 100%; float: left; padding: 25px 0; border-bottom: 1px solid #EBEBEB; }
+.popupWrap > .popupBox > .titWrap > .left { padding-left: 50px; font-size: 21px; color: #182240; font-weight: bold; }
+.popupWrap > .popupBox > .titWrap > .left > .guide { font-size: 14px; color: #BBB; font-weight: 500; margin-left: 15px; }
+.popupWrap > .popupBox > .titWrap > .right { height: 31px; }
+.popupWrap > .popupBox > .titWrap > .right > i { position: absolute; font-size: 40px; right: 30px; top: 50%; margin-top: -20px; color: #CCC; cursor: pointer; }
+.popupWrap > .popupBox > .titWrap > .right > i:hover { color: #BBB; }
+
+.popupWrap > .popupBox > .frameWrap { width: 100%; height: calc(100% - 82px); float: left; padding: 0; }
+.popupWrap > .popupBox > .frameWrap > iframe { width: 100%; height: 100%; float: left; border: 0; }
+
+/* 팝업 영역 */
+.popupWraps { position: fixed; width: 100%; height: 100%; left: 0; top: 0; z-index: 100; background-color: rgba(0, 0, 0, 0.4); display: none; }
+.popupWraps > .popupBox { position: absolute; width: 1200px; height: 600px; left: 50%; top: 52%; margin-top: -350px; margin-left: -600px; background-color: #FFF; }
+
+.popupWraps > .popupBox > .titWrap { width: 100%; float: left; padding: 25px 0; border-bottom: 1px solid #EBEBEB; }
+.popupWraps > .popupBox > .titWrap > .left { padding-left: 50px; font-size: 21px; color: #182240; font-weight: bold; }
+.popupWraps > .popupBox > .titWrap > .left > .guide { font-size: 14px; color: #BBB; font-weight: 500; margin-left: 15px; }
+.popupWraps > .popupBox > .titWrap > .right { height: 31px; }
+.popupWraps > .popupBox > .titWrap > .right > i { position: absolute; font-size: 40px; right: 30px; top: 50%; margin-top: -20px; color: #CCC; cursor: pointer; }
+.popupWraps > .popupBox > .titWrap > .right > i:hover { color: #BBB; }
+
+.popupWraps > .popupBox > .frameWrap { width: 100%; height: calc(100% - 82px); float: left; padding: 0; }
+.popupWraps > .popupBox > .frameWrap > iframe { width: 100%; height: 100%; float: left; border: 0; }
+
+/* 페이징 */
+.pagingWrap { width: 100%; float: left; margin-top: 30px; }
+.pagingWrap > ul { width: 100%; float: left; text-align: center; }
+.pagingWrap > ul > li { display: inline-block; margin: 0 2px; }
+.pagingWrap > ul > li > a { float: left; color: #AAA; font-weight: 500; font-size: 14px; padding: 2px 9px; border: 1px solid #EEE; }
+.pagingWrap > ul > li > a:hover { color: #999; border: 1px solid #CCC; }
+.pagingWrap > ul > li > span { float: left; color: #354C8E; font-weight: 500; font-size: 14px; padding: 2px 9px; border: 1px solid #354C8E; }
+
+/* 엑셀 */
+#excelFileName { height: 35px; line-height: 35px; float: left; color: #999; margin-left: 10px; font-size: 13px; }
+#excelFileName i { margin-left: 5px; color: #999;}
+.getFileNameSpan { height: 35px; line-height: 35px; float: left; color: #999; margin-left: 10px; font-size: 13px; }
+
+.db_csdwon i { margin-left: 5px; color: #999; }
+
+/* filedown */
+.filedownItem { width: 100%; float: left; margin-top: 5px; color: #999; font-size: 13px; }
+.filedownItem:hover { color: #3366CC; }
+.filedownItem > i { margin-right: 3px; }
+
+/* 긴급공지 */
+#importantPopupWrap { position: fixed; width: 100%; height: 100%; z-index: 1000; left: 0; top: 0; background-color: rgba(0, 0, 0, 0.3); opacity: 0; }
+#importantPopupWrap img { max-width: 100%; }
+
+#importantPopupBox { width: 800px; position: absolute; top: 50%; left: 50%; margin-left: -400px; background-color: #FFF; border-radius: 3px; box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4); overflow: hidden; margin-top: -276.5px; }
+
+#importantPopupBox > .topWrap { width: 100%; float: left; border-bottom: 1px solid #EEE; font-size: 16px; font-weight: bold; color: #DC3333; text-align: center; letter-spacing: -0.5px; padding: 10px 0; }
+
+#importantPopupBox > .btmWrap { width: 100%; float: left; font-size: 12px; font-weight: 300; color: #FFF; text-align: right; padding: 10px; background-color: #151C20; }
+#importantPopupBox > .btmWrap > a { margin-left: 10px; color: #FFF; }
+
+#importantPopupBox > .conWrap { width: 100%; float: left; padding: 20px; padding-bottom: 10px; }
+#importantPopupBox > .conWrap > li { width: 100%; float: left; height: 400px; overflow: auto; display: none; }
+
+#importantPopupBox > .conWrap > li > .titWrap { width: 100%; float: left; border-bottom: 1px solid #F2F2F2; padding-bottom: 10px; }
+#importantPopupBox > .conWrap > li > .titWrap > .big { width: 100%; float: left; font-size: 21px; font-weight: bold; color: #333; letter-spacing: -1px; line-height: 26px; }
+#importantPopupBox > .conWrap > li > .titWrap > .small { width: 100%; float: left; font-size: 14px; font-weight: 300; color: #999; letter-spacing: -0.5px; margin-top: 10px; }
+
+#importantPopupBox > .conWrap > li > .infoWrap { width: 100%; float: left; font-size: 15px; font-weight: 300; color: #333; letter-spacing: -0.5px; padding: 10px 0; }
+
+#importantPopupBox > .navWrap { width: 100%; float: left; text-align: center; padding-bottom: 20px; }
+#importantPopupBox > .navWrap > li { display: inline-block; width: 10px; height: 10px; background-color: #CCC; border-radius: 100%; margin: 0 1px; cursor: pointer; }
+#importantPopupBox > .navWrap > li.active { background-color: #333; }
+
+/* 나의 쪽지함 */
+#myNoteWrap { width: 100%; height: 100%; float: left; }
+
+#myNoteWrap > .frmWrap { width: 65%; height: 100%; float: left; border: 1px solid #CCC; padding: 20px; background-color: #FBFBFB; }
+
+#myNoteWrap #sendFrm { width: 100%; float: left; text-align: center; }
+#myNoteWrap #sendFrm > textarea { margin: 10px 0; height: 437px; }
+#myNoteWrap #sendFrm > button { float: none; display: inline-block; text-align; margin: 0 2px; }
+
+#myNoteWrap #noteViewWrap { width: 100%; float: left; text-align: center; display: none; }
+#myNoteWrap #noteViewWrap > .userInfo { width: 100%; height: 35px; line-height: 35px; font-size: 15px; font-weight: bold; color: #333; padding: 0 10px; float: left; text-align: left; letter-spacing: -0.5px; }
+#myNoteWrap #noteViewWrap > .contentsWrap { width: 100%; float: left; border: 1px solid #EEE; overflow-y: auto; background-color: #FFF; margin: 10px 0; height: 437px; padding: 10px; color: #333; text-align: left; font-size: 14px; font-weight: 400; letter-spacing: -0.5px; }
+#myNoteWrap #noteViewWrap > button { float: none; display: inline-block; text-align; margin: 0 2px; }
+
+#myNoteWrap > .listWrap { width: 33%; height: 100%; float: right; border: 1px solid #CCC; }
+
+#myNoteWrap > .listWrap > .tabWrap { width: 100%; float: left; }
+#myNoteWrap > .listWrap > .tabWrap > ul { width: 100%; float: left; }
+#myNoteWrap > .listWrap > .tabWrap > ul > li { width: 33.33%; height: 45px; line-height: 45px; float: left; cursor: pointer; border-right: 1px solid #CCC; text-align: center; font-weight: bold; font-size: 14px; color: #999; border-bottom: 1px solid #CCC; }
+#myNoteWrap > .listWrap > .tabWrap > ul > li.active { border-bottom: 0; color: #3366CC; }
+#myNoteWrap > .listWrap > .tabWrap > ul > li:last-of-type { border-right: 0; }
+
+#myNoteWrap > .listWrap > .viewWrap { width: 100%; height: calc(100% - 45px); float: left; overflow-x: hidden; overflow-y: auto; padding: 15px; }
+#myNoteWrap > .listWrap > .viewWrap > ul { width: 100%; float: left; }
+#myNoteWrap > .listWrap > .viewWrap > ul > li { width: 100%; float: left; border: 1px solid #EEE; padding: 10px; margin-bottom: 10px; }
+#myNoteWrap > .listWrap > .viewWrap > ul > li:last-of-type { margin-bottom: 0; }
+#myNoteWrap > .listWrap > .viewWrap > ul > li.active { border: 1px solid #3366CC !important; }
+
+#myNoteWrap > .listWrap .sendListWrap > li { cursor: pointer; }
+#myNoteWrap > .listWrap .sendListWrap > li:hover { border: 1px solid #3366CC; }
+#myNoteWrap > .listWrap .sendListWrap > li > .con { width: 100%; float: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; color: #333; font-weight: 500; margin-bottom: 3px; }
+#myNoteWrap > .listWrap .sendListWrap > li > .con > i { color: #DC3333; margin-right: 5px; }
+#myNoteWrap > .listWrap .sendListWrap > li > .userInfo { float: left; font-size: 13px; color: #666; letter-spacing: -0.5px; }
+#myNoteWrap > .listWrap .sendListWrap > li > .userInfo > i { margin-right: 5px; }
+#myNoteWrap > .listWrap .sendListWrap > li > .date { float: left; font-size: 13px; color: #999; letter-spacing: -0.5px; margin-left: 10px; }
+#myNoteWrap > .listWrap .sendListWrap > li > .viewDate { width: 100%; float: left; font-size: 12px; color: #666; letter-spacing: -0.5px; margin-top: 5px; }
+#myNoteWrap > .listWrap .sendListWrap > li > .viewDate > i { margin-right: 5px; top: 1px; }
+#myNoteWrap > .listWrap .sendListWrap > li > .viewDate.before { color: #DC3333; }
+
+#myNoteWrap > .listWrap .bookListWrap > #addBookFrm { border: 1px solid #DDD; background-color: #FBFBFB; }
+#myNoteWrap > .listWrap .bookListWrap > #addBookFrm > form { width: 100%; float: left; }
+#myNoteWrap > .listWrap .bookListWrap > #addBookFrm > form > #userID { width: 30%; }
+#myNoteWrap > .listWrap .bookListWrap > #addBookFrm > form > #userMemo { width: 48%; margin: 0 2%; }
+#myNoteWrap > .listWrap .bookListWrap > #addBookFrm > form > #bookAddBtn { width: 18%; }
+
+#myNoteWrap > .listWrap .bookListWrap > .addGroupBtn { border: 1px solid #999; background-color: #999; text-align: center; cursor: pointer; color: #FFF; font-size: 13px; font-weight: 500; width: 43%; padding: 8px; margin-right: 5px; }
+#myNoteWrap > .listWrap .bookListWrap > .addGroupBtn > i { margin-right: 5px; }
+
+#myNoteWrap > .listWrap .bookListWrap > li > input { display: none; margin-bottom: 10px; }
+#myNoteWrap > .listWrap .bookListWrap > li > .memo { width: 100%; float: left; font-size: 15px; font-weight: bold; color: #333; letter-spacing: -0.5px; margin-bottom: 3px; }
+#myNoteWrap > .listWrap .bookListWrap > li > .user { float: left; font-size: 13px; font-weight: 400; color: #666; letter-spacing: -0.5px; }
+#myNoteWrap > .listWrap .bookListWrap > li > .buttonList { float: right; margin-top: -7px; }
+#myNoteWrap > .listWrap .bookListWrap > li > .buttonList > i { width: 25px; height: 25px; border-radius: 100%; float: left; cursor: pointer; margin-left: 10px; font-size: 12px; background-color: #EEE; line-height: 25px; text-align: center; color: #666; }
+#myNoteWrap > .listWrap .bookListWrap > li > .buttonList > i:hover { background-color: #E3E3E3; }
+
+/* 통계 */
+#chartWrap { width: 100%; float: left; border: 1px solid #EEE; padding: 20px; margin-bottom: 50px; }
+#chartWrap > #chartBox { width: 100%; height: 350px; float: left; }
+
+/* 191011 대시보드 */
+.dashboardWrap { width: 100%; float: left; }
+.dashboardWrap .dash_section { width: 100%; float: left; background-color: #FFF; margin-bottom: 20px; box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.03); }
+.dashboardWrap .dash_section > .section_tit { width: 100%; float: left; font-size: 16px; font-weight: bold; letter-spacing: -1px; color: #333; padding: 15px 20px; border-bottom: 1px solid #EEE; }
+.dashboardWrap .dash_section > .section_tit > a { float: right; color: #999; }
+.dashboardWrap .dash_section > .section_tit > span { float: right; color: #999; font-weight: 300; font-size: 13px; top: 3px; letter-spacing: -0.5px; }
+.dashboardWrap .dash_section > .section_tit > span i { margin-left: 5px; color: #999; }
+.dashboardWrap .dash_section > .section_con { width: 100%; float: left; padding: 15px 30px; }
+
+.dashboardWrap .adWrap { padding: 0 !important; }
+.dashboardWrap .adWrap > a { width: 100%; float: left; }
+.dashboardWrap .adWrap > a > img { width: 100%; vertical-align: bottom; }
+
+.dashboardWrap > .dashboard_left { float: left; width: calc(100% - 380px); }
+.dashboardWrap > .dashboard_left > * { width: 100%; float: left; }
+
+.dashboardWrap > .dashboard_left > .dashType_3 > * { width: 33.33%; padding-right: 20px; float: left; }
+
+.dashboardWrap > .dashboard_left > .dashType_2 > * { float: left; padding-right: 20px; width: 50%; }
+
+.dashboardWrap > .dashboard_left > .dashType_1 > * { float: left; width: 100%; padding-right: 20px; }
+
+.dashboardWrap > .dashboard_left > .dashType_last .dash_section { margin-bottom: 10px !important; }
+
+.dashboardWrap > .dashboard_right { float: right; width: 380px; }
+.dashboardWrap > .dashboard_right > div:last-of-type { margin-bottom: 10px; }
+.dashboardWrap > .dashboard_right > .my_info { padding: 0 !important; }
+.dashboardWrap > .dashboard_right > .my_info > .top { width: 100%; float: left; background-color: #464646; height: auto; padding: 35px 0; text-align: center; }
+.dashboardWrap > .dashboard_right > .my_info > .top > .userIcon { width: 100%; float: left; color: #FFF; font-size: 64px; margin-bottom: 10px; }
+.dashboardWrap > .dashboard_right > .my_info > .top > .my_id { background-color: #252525; color: #FFF; font-size: 14px; font-weight: 500; text-align: center; padding: 7px 0; border-radius: 50px; width: 60%; float: left; margin: 0 20%; letter-spacing: -0.5px; }
+.dashboardWrap > .dashboard_right > .my_info > .top > .my_id > a { color: #6C6C6C; position: absolute; right: 15px; }
+
+.dashboardWrap > .dashboard_right > .my_info > .bottom { width: 100%; float: left; background-color: #393939; padding: 20px 10px; }
+.dashboardWrap > .dashboard_right > .my_info > .bottom > table { width: 100%; }
+.dashboardWrap > .dashboard_right > .my_info > .bottom > table th { width: 32%; font-size: 14px; text-align: left; color: #858585; padding: 2px 0; padding-left: 20px; font-weight: 500; letter-spacing: -1px; }
+.dashboardWrap > .dashboard_right > .my_info > .bottom > table td { width: 68%; font-size: 14px; text-align: left; color: #FFF; padding: 2px 0; font-weight: 300; letter-spacing: -0.2px; }
+
+.dashboardWrap > .dashboard_right > .notice > .section_tit { padding: 15px 20px; }
+.dashboardWrap > .dashboard_right > .notice > .section_con { padding: 15px 20px; }
+.dashboardWrap > .dashboard_right > .notice table td { font-size: 13px; padding: 3px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dashboardWrap > .dashboard_right > .notice table td.tit { font-weight: 400; letter-spacing: -0.5px; color: #333; }
+.dashboardWrap > .dashboard_right > .notice table td.tit .notis { font-size: 12px; padding: 1px 8px; border: 1px solid #DC3333; font-weight: bold; border-radius: 3px; margin-right: 5px; color: #DC3333; }
+.dashboardWrap > .dashboard_right > .notice table td.tit .important { font-size: 12px; padding: 1px 8px; border: 1px solid #DC3333; font-weight: bold; border-radius: 3px; margin-right: 3px; color: #FFF; background-color: #DC3333; }
+.dashboardWrap > .dashboard_right > .notice table td.tit > i { margin-right: 5px; }
+.dashboardWrap > .dashboard_right > .notice table td.date { color: #AAA; text-align: right; font-weight: 300; letter-spacing: -0.5px; padding-right: 1px; }
+
+/* 200417 대시보드 */
+.dashboardWrap .dataListTable { width: 100%; display: table; }
+.dashboardWrap .dataListTable.half { width: 50% !important; float: left; }
+.dashboardWrap .dataListTable > * { display: table-cell; vertical-align: middle; }
+
+.dashboardWrap .dataListTable > .iconWrap { width: 80px; text-align: center; padding: 10px 0; }
+.dashboardWrap .dataListTable > .iconWrap > i { width: 80px; height: 80px; line-height: 80px; background-color: #EBEBEB; border-radius: 100%; color: #FFF; font-size: 32px; }
+.dashboardWrap .dataListTable > .iconWrap > span { width: 100%; float: left; font-weight: bold; font-size: 14px; color: #3A498A; letter-spacing: -0.8px; margin-top: 5px; }
+
+.dashboardWrap .dataListTable > .infoWrap { padding-left: 30px; }
+.dashboardWrap .dataListTable > .infoWrap > li { width: 100%; float: left; border-bottom: 1px solid #EEE; padding: 3px 6px; }
+.dashboardWrap .dataListTable > .infoWrap > li > span { font-size: 14px; }
+.dashboardWrap .dataListTable > .infoWrap > li > span.label { float: left; font-weight: 500; }
+.dashboardWrap .dataListTable > .infoWrap > li > span.value { float: right; letter-spacing: -0.5px; }
+
+.dashboardWrap .dashGuideWrap { background-color: #9CB0E5; display: table; }
+.dashboardWrap .dashGuideWrap > * { display: table-cell; vertical-align: middle; }
+
+.dashboardWrap .dashGuideWrap > .customerWrap { width: 360px; padding: 30px 0; padding-left: 65px; }
+.dashboardWrap .dashGuideWrap > .customerWrap > span { width: 100%; float: left; }
+.dashboardWrap .dashGuideWrap > .customerWrap > .tit { font-size: 13px; font-weight: bold; color: #3E5490; letter-spacing: -0.8px; }
+.dashboardWrap .dashGuideWrap > .customerWrap > .tel { font-size: 25px; font-weight: bold; color: #FFF; letter-spacing: -0.8px; margin-top: 5px; }
+.dashboardWrap .dashGuideWrap > .customerWrap > .tel > i { margin-right: 8px; }
+.dashboardWrap .dashGuideWrap > .customerWrap > .time { font-size: 13px; font-weight: 500; color: #333; letter-spacing: -0.8px; margin-top: 2px; margin-left: 30px; }
+
+.dashboardWrap .dashGuideWrap > .infoWrap > span { width: 100%; float: left; color: #FFF; font-size: 13px; font-weight: 500; letter-spacing: -0.8px; margin: 2px 0; }
+.dashboardWrap .dashGuideWrap > .infoWrap > p { width: 100%; float: left; color: #FFF; font-size: 15px; font-weight: bold; letter-spacing: -0.5px; margin-top: 8px; }
+.dashboardWrap .dashGuideWrap > .infoWrap > p > span { float: left; }
+.dashboardWrap .dashGuideWrap > .infoWrap > p > span > i { margin-right: 10px; }
+.dashboardWrap .dashGuideWrap > .infoWrap > p > span.line { width: 1px; height: 14px; background-color: #FFF; margin: 3px 10px; }
+
+.dashboardWrap .dashChartWrap { width: 100%; height: 350px; float: left; }
+
+/* 알림 */
+#myNotificationListWrap { width: 100%; float: left; }
+
+#myNotificationListWrap > .notificationWrap { width: 100%; float: left; }
+#myNotificationListWrap > .notificationWrap > li { width: 100%; float: left; border: 1px solid #EEE; margin-bottom: 10px; padding: 20px; border-radius: 5px; }
+#myNotificationListWrap > .notificationWrap > li.click { cursor: pointer; }
+#myNotificationListWrap > .notificationWrap > li:last-of-type { margin-bottom: 0; }
+#myNotificationListWrap > .notificationWrap > li.click:hover { border: 1px solid #DDD; }
+#myNotificationListWrap > .notificationWrap > li > .iconWrap { width: 60px; height: 60px; float: left; background-color: #EEE; border-radius: 100%; }
+#myNotificationListWrap > .notificationWrap > li > .iconWrap > i { width: 60px; height: 60px; float: left; text-align: center; color: #FFF !important; line-height: 60px; font-size: 24px; }
+#myNotificationListWrap > .notificationWrap > li > .infoWrap { width: calc(100% - 60px); float: left; padding: 3px 0; padding-left: 20px; }
+#myNotificationListWrap > .notificationWrap > li > .infoWrap > .title { width: 100%; float: left; font-size: 15px; color: #CCC; margin-bottom: 7px; }
+#myNotificationListWrap > .notificationWrap > li > .infoWrap > .title > b { margin-right: 3px; }
+#myNotificationListWrap > .notificationWrap > li > .infoWrap > .title > span { letter-spacing: -0.5px; }
+#myNotificationListWrap > .notificationWrap > li > .infoWrap > .date { width: 100%; float: left; font-size: 13px; color: #EEE; letter-spacing: -0.5px; }
+
+#myNotificationListWrap > .notificationWrap > li.new { border: 1px solid #DDD; }
+#myNotificationListWrap > .notificationWrap > li.click.new:hover { border: 1px solid #CCC; }
+#myNotificationListWrap > .notificationWrap > li.new > .infoWrap > .title { color: #333; }
+#myNotificationListWrap > .notificationWrap > li.new > .infoWrap > .date { color: #999; }
+
+#myNotificationListWrap > .notificationTypeWrap { width: 100%; float: left; margin-bottom: 15px; }
+#myNotificationListWrap > .notificationTypeWrap > li { float: left; cursor: pointer; color: #333; background-color: #EEE; border-radius: 5px; font-size: 15px; padding: 5px 10px; margin-right: 5px; font-weight: bold; }
+#myNotificationListWrap > .notificationTypeWrap > li:hover { background-color: #DDD; }
+#myNotificationListWrap > .notificationTypeWrap > li.this { background-color: #333 !important; color: #FFF !important; cursor: default !important; }
+
+/* 팝업형 미니 리스트 등록폼 */
+.listMiniWriteWrap { width: 100%; float: left; background-color: #F5F5F5; padding: 10px; margin-bottom: 20px; }
+.listMiniWriteWrap > li { float: left; padding: 0 2px; }
+
+/* DB항목 설정 */
+#dbColumnListWrap { width: 80%; float: left; border-radius: 5px; border: 1px solid #EEE; }
+#dbColumnListWrap > li { width: 100%; float: left; padding: 10px; border-bottom: 1px solid #F2F2F2; }
+#dbColumnListWrap > li:last-of-type { border-bottom: 0; }
+
+#dbColumnListWrap > li.head { border-bottom: 1px solid #EEE; background-color: #FAFAFA; }
+#dbColumnListWrap > li.head > span { font-weight: 500; font-size: 13px; color: #AAA; text-align: left; float: left; }
+#dbColumnListWrap > li.head > span:nth-of-type(1) { width: 30%; }
+#dbColumnListWrap > li.head > span:nth-of-type(2) { width: 30%; }
+#dbColumnListWrap > li.head > span:nth-of-type(3) { width: 20%; }
+#dbColumnListWrap > li.head > span:nth-of-type(4) { width: 20%; }
+
+#dbColumnListWrap > li.basic > span { font-size: 13px; color: #666; text-align: left; float: left; }
+#dbColumnListWrap > li.basic > span:nth-of-type(1) { width: 30%; }
+#dbColumnListWrap > li.basic > span:nth-of-type(2) { width: 30%; }
+#dbColumnListWrap > li.basic > span:nth-of-type(3) { width: 20%; }
+#dbColumnListWrap > li.basic > span:nth-of-type(4) { width: 20%; }
+
+#dbColumnListWrap > li.item > *:nth-child(2) { width: 29%; margin-right: 1%; }
+#dbColumnListWrap > li.item > *:nth-child(3) { width: 29%; margin-right: 1%; }
+#dbColumnListWrap > li.item > *:nth-child(5) { margin-right: calc(20% - 60px); top: 1.5px; }
+#dbColumnListWrap > li.item > *:nth-child(7) { top: 1.5px; }
+
+/* 200609 FC 목록 */
+#fcListWrap { width: 100%; float: left; -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select: none; }
+#fcListWrap > li { width: 25%; float: left; text-align: left; }
+#fcListWrap > li > label { float: left; }
+#fcListWrap > li > label > span { letter-spacing: -0.5px; color: #BBB; margin-left: 5px; }
+#fcListWrap > li > label > i { vertical-align: middle; top: -1px; }
+#fcListWrap > li > label > .off { color: #DDD; display: inline-block; }
+#fcListWrap > li > label > .on { color: #3366CC; display: none; }
+#fcListWrap > li > input:checked + label > span { color: #666; }
+#fcListWrap > li > input:checked + label > .off { display: none; }
+#fcListWrap > li > input:checked + label > .on { display: inline-block; }
+#fcListWrap > li > span { color: #BBB; }
+
+/* 중복제외 목록 */
+#overlapWrap { width: 100%; float: left; -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select: none; }
+#overlapWrap > label { float: left; }
+#overlapWrap > label > span { letter-spacing: -0.5px; color: #BBB; margin-left: 5px; font-size: 12px; }
+#overlapWrap > label > i { vertical-align: middle; top: -1px; }
+#overlapWrap > label > .off { color: #DDD; display: inline-block;  font-size: 12px;}
+#overlapWrap > label > .on { color: #3366CC; display: none; }
+#overlapWrap > input:checked + label > span { color: #666; font-size: 12px; }
+#overlapWrap > input:checked + label > .off { display: none; }
+#overlapWrap > input:checked + label > .on { display: inline-block; }
+#overlapWrap > span { color: #BBB; font-size: 12px;}
+
+#fcDIstInfoListWrap { width: 100%; float: left; -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select: none; overflow: hidden; }
+#fcDIstInfoListWrap > li { width: 270px; margin-right: 10px; float: left; margin-bottom: 10px; }
+#fcDIstInfoListWrap > li > span { height: 35px; line-height: 35px; }
+#fcDIstInfoListWrap > li > .name { float: left; letter-spacing: -0.5px; }
+#fcDIstInfoListWrap > li > .sort { float: right; letter-spacing: -0.5px; }
+#fcDIstInfoListWrap > li > .txtBox { width: 15%; float: right; margin-left: 10px; }
+#fcDIstInfoListWrap > li.item { border: 1px solid #DDD; cursor: move; padding: 10px; background-color: #FFF; }
+#fcDIstInfoListWrap > li.no > span { color: #CCC; }
+
+.fcDIstInfoListWrap { width: 100%; float: left; -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select: none; overflow: hidden; }
+.fcDIstInfoListWrap > li { width: 270px; margin-right: 10px; float: left; margin-bottom: 10px; }
+.fcDIstInfoListWrap > li > span { height: 35px; line-height: 35px; }
+.fcDIstInfoListWrap > li > .name { float: left; letter-spacing: -0.5px; }
+.fcDIstInfoListWrap > li > .sort { float: right; letter-spacing: -0.5px; }
+.fcDIstInfoListWrap > li > .txtBox { width: 15%; float: right; margin-left: 10px; }
+.fcDIstInfoListWrap > li.item { border: 1px solid #DDD; cursor: move; padding: 10px; background-color: #FFF; }
+.fcDIstInfoListWrap > li.no > span { color: #CCC; }
+
+/* 데이터 정리 */
+.dbCheckDataInfoWrap { width: 100%; float: left; margin-bottom: 30px; }
+
+.dbCheckDataInfoWrap > .titWrap { width: 100%; float: left; margin-bottom: 10px; }
+.dbCheckDataInfoWrap > .titWrap > .left { font-size: 18px; color: #000; font-weight: bold; }
+.dbCheckDataInfoWrap > .titWrap > .left > i { margin-right: 5px; }
+.dbCheckDataInfoWrap > .titWrap > .right > .label { height: 25px; line-height: 25px; float: left; font-size: 14px; font-weight: bold; color: #333; margin-right: 15px; }
+.dbCheckDataInfoWrap > .titWrap > .right > .value { height: 25px; float: left; font-size: 14px; line-height: 25px; padding: 0 30px; color: #FFF; font-weight: 500; border-radius: 50px; }
+
+.dbCheckDataInfoWrap > .infoWrap { width: 100%; float: left; border: 2px solid #EEE; padding: 20px 30px; }
+.dbCheckDataInfoWrap > .infoWrap > ul { width: 100%; float: left; margin-bottom: 10px; }
+.dbCheckDataInfoWrap > .infoWrap > ul:last-of-type { margin-bottom: 0; }
+.dbCheckDataInfoWrap > .infoWrap > ul > li { float: left; padding: 0 15px; border-right: 1px solid #EEE; }
+.dbCheckDataInfoWrap > .infoWrap > ul > li:first-of-type { padding-left: 0; }
+.dbCheckDataInfoWrap > .infoWrap > ul > li:last-of-type { border-right: 0; }
+.dbCheckDataInfoWrap > .infoWrap > ul > li > span { float: left; color: #333; font-size: 13px; }
+.dbCheckDataInfoWrap > .infoWrap > ul > li > span.label { margin-right: 20px; font-weight: bold; }
+
+.dbCheckDataInfoWrap > .infoWrap > button { position: absolute; right: 50px; top: 50%; margin-top: -17.5px; }
+
+/* 200617 엑셀 업로드 결과 정리표 */
+#excelResultInfoWrap { width: 100%; float: left; margin-bottom: 20px; }
+#excelResultInfoWrap > ul { width: 100%; float: left; border-right: 1px solid #CCC; }
+#excelResultInfoWrap > ul > li { height: 50px; line-height: 50px; float: left; text-align: center; font-size: 14px; }
+#excelResultInfoWrap > ul > li.label { width: 18%; font-weight: bold; color: #FFF; }
+#excelResultInfoWrap > ul > li.label > .background { position: absolute; width: 100%; height: 100%; background-color: #000; opacity: 0.3; top: 0; left: 0; }
+#excelResultInfoWrap > ul > li.value { width: 15.33%; font-weight: 500; border-top: 1px solid #CCC; border-bottom: 1px solid #CCC; }
+
+/* 200703 프로그램 만료안내 */
+#programEndDateInfoWrap .dash_section { background-color: #DC3333; }
+#programEndDateInfoWrap .dash_section > .iconWrap { width: 50px; height: 50px; float: left; border-right: 1px solid rgba(255, 255, 255, 0.3); text-align: center; line-height: 50px; font-size: 18px; color: #FFF; }
+#programEndDateInfoWrap .dash_section > .infoWrap { float: left; height: 50px; line-height: 50px; padding: 0 15px; font-size: 14px; color: #FFF; }
+#programEndDateInfoWrap .dash_section > .infoWrap span { margin-left: 5px; opacity: 0.8; }
+
+#programEndInfoPageWrap { position: fixed; width: 100%; height: 100%; left: 0; top: 0; background-color: #F8F8F8; z-index: 9999999; }
+#programEndInfoPageWrap > div { position: absolute; width: 550px; top: 50%; left: 50%; margin-left: -275px; margin-top: -186.5px; }
+
+#programEndInfoPageWrap > div > .logoWrap { width: 100%; float: left; text-align: center; }
+#programEndInfoPageWrap > div > .logoWrap > img { width: 300px; }
+
+#programEndInfoPageWrap > div > .titWrap { width: 100%; float: left; text-align: center; font-weight: 500; font-size: 23px; color: #333; margin-top: 15px; }
+
+#programEndInfoPageWrap > div > .conWrap { width: 100%; float: left; background-color: #FFF; border: 1px solid #EEE; border-radius: 5px; padding: 50px 10px; margin-top: 25px; }
+#programEndInfoPageWrap > div > .conWrap > ul { width: 100%; float: left; list-style: disc !important; padding-left: 40px; }
+#programEndInfoPageWrap > div > .conWrap > ul > li { width: 100%; float: left; list-style: disc !important; font-size: 14px; color: #333; margin: 3px 0; }
+
+#programEndInfoPageWrap > div > .btnWrap { width: 100%; float: left; text-align: center; margin-top: 30px; }
+#programEndInfoPageWrap > div > .btnWrap > * { display: inline-block; height: 50px; line-height: 50px; border-radius: 5px; background-color: #333; color: #FFF; font-size: 16px; padding: 0 20px; }
+
+/* 200923 템플릿목록 */
+.smsTemplateWrap { width: 100%; float: left; border-top: 2px solid #DEDEDE; border-bottom: 1px solid #E3E3E3; padding-top: 20px; }
+.smsTemplateWrap > ul { width: 100%; float: left; }
+
+.smsTemplateWrap > .itemList > li { width: calc(calc(100% - 80px) / 5); float: left; margin-right: 20px; margin-bottom: 20px; background-color: #FAFAFA; padding: 15px; border: 1px solid #E5E5E5; }
+.smsTemplateWrap > .itemList > li:nth-of-type(5n) { margin-right: 0; }
+.smsTemplateWrap > .itemList > li > input.txtBox { margin-bottom: 10px; }
+.smsTemplateWrap > .itemList > li > textarea.txtBox { height: 200px; margin-bottom: 10px; }
+.smsTemplateWrap > .itemList > li > label { top: 2.5px; }
+.smsTemplateWrap > .itemList > li > button { width: 65px; float: right; margin-left: 3px; }
+
+.smsTemplateWrap > .no > li { width: 100%; float: left; text-align: center; font-size: 13px; color: #666; margin-bottom: 20px; }
+
+/* 200924 SMS전송 */
+#smsSendFrmWrap { width: 100%; float: left; padding-top: 30px; }
+#smsSendFrmWrap > form { width: 100%; float: left; }
+
+#smsSendFrmWrap .left { width: 400px; float: left; -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select: none; left: 100px; }
+
+#smsSendFrmWrap .left  > .backgroundWrap { width: 100%; float: left; text-align: center; }
+#smsSendFrmWrap .left  > .backgroundWrap > .timeSet { position: absolute; width: 69px; height: 14px; line-height: 14px; letter-spacing: 0; text-align: center; font-size: 13px; font-weight: bold; color: #000; top: 33px; left: 30px; z-index: 2; }
+#smsSendFrmWrap .left  > .backgroundWrap > .sendTelInfo { position: absolute; width: 100%; height: 10px; line-height: 10px; letter-spacing: 0; text-align: center; font-size: 12px; font-weight: bold; color: #000; top: 118px; left: 0; z-index: 2; }
+
+#smsSendFrmWrap .left  > .smsLogVisualWrap { position: absolute; width: calc(100% - 48px); height: 480px; overflow-y: auto; padding: 20px; z-index: 2; left: 24px; top: 140px; transition: height 0.5s; }
+#smsSendFrmWrap .left  > .smsLogVisualWrap.active { height: 340px; }
+#smsSendFrmWrap .left  > .smsLogVisualWrap > ul { width: 100%; float: left; }
+#smsSendFrmWrap .left  > .smsLogVisualWrap > ul > li { width: 100%; float: left; margin-bottom: 10px; top: 10px; opacity: 0; transition: top 0.5s, opacity 0.5s; }
+#smsSendFrmWrap .left  > .smsLogVisualWrap > ul > li.active { top: 0; opacity: 1; }
+#smsSendFrmWrap .left  > .smsLogVisualWrap > ul > li:last-of-type { margin-bottom: 0; }
+#smsSendFrmWrap .left  > .smsLogVisualWrap > ul > li > p { max-width: 280px; border-radius: 25px; padding: 15px; font-size: 13px; letter-spacing: -0.5px; line-height: 19px; }
+#smsSendFrmWrap .left  > .smsLogVisualWrap > ul > li > img { position: absolute; bottom: 0; }
+
+#smsSendFrmWrap .left  > .smsLogVisualWrap > ul > .receive > p { float: left; background-color: #E8E8EA; color: #000; }
+#smsSendFrmWrap .left  > .smsLogVisualWrap > ul > .receive > img { left: -14px; }
+#smsSendFrmWrap .left  > .smsLogVisualWrap > ul > .send > p { float: right; background-color: #33C658; color: #FFF; }
+#smsSendFrmWrap .left  > .smsLogVisualWrap > ul > .send > img { right: -14px; }
+
+#smsSendFrmWrap .left  > .smsSendMsgWrap { position: absolute; width: 100%; padding: 0 40px; z-index: 2; left: 0; bottom: 50px; }
+#smsSendFrmWrap .left  > .smsSendMsgWrap > textarea { height: 63px; border: 2px solid #CCC !important; border-radius: 30px; padding: 20px 20px; padding-right: 64px; transition: height 0.5s; overflow: hidden; }
+#smsSendFrmWrap .left  > .smsSendMsgWrap > textarea:focus { height: 200px; overflow: auto; }
+#smsSendFrmWrap .left  > .smsSendMsgWrap > button { position: absolute; width: 40px; height: 40px; line-height: 40px; text-align: center; border-radius: 100%; background-color: #33C658; color: #FFF; font-size: 18px; right: 54px; bottom: 12px; }
+
+#smsSendFrmWrap .right { width: calc(100% - 650px); height: 750px; float: right; background-color: #F2F2F2; border-radius: 10px; padding: 50px; }
+
+#smsSendFrmWrap .right > .titWrap { width: 100%; float: left; font-size: 21px; font-weight: bold; color: #333; }
+
+#smsSendFrmWrap .right > .settingWrap { width: 100%; float: left; margin-top: 20px; }
+#smsSendFrmWrap .right > .settingWrap > * { margin-right: 5px; }
+#smsSendFrmWrap .right > .settingWrap > .receiveName { width: 150px; }
+#smsSendFrmWrap .right > .settingWrap > .receiveTel { width: 200px; }
+
+#smsSendFrmWrap .right > .tableWrap { width: 100%; float: left; margin-top: 10px; border-top: 2px solid #333; }
+#smsSendFrmWrap .right > .tableWrap > table { width: 100%; float: left; }
+#smsSendFrmWrap .right > .tableWrap > table thead > tr > th { height: 50px; text-align: center; font-size: 13px; color: #333; border-bottom: 1px solid #EEE; background-color: #FFF; border-right: 1px solid #EEE; }
+#smsSendFrmWrap .right > .tableWrap > table thead > tr > th:last-of-type { border-right: 0; }
+#smsSendFrmWrap .right > .tableWrap > table tbody > tr > td { height: 40px; text-align: center; font-size: 13px; color: #999; font-weight: 500; border-bottom: 1px solid #F5F5F5; border-right: 1px solid #F5F5F5; background-color: #FFF; letter-spacing: 0; }
+
+#smsSendFrmWrap .right > .tableWrap.body { height: 450px; margin-top: 0 !important; border-top: 0 !important; background-color: #FFF; overflow-y: auto; }
+
+#smsSendFrmWrap .right > .sendWrap { position: absolute; width: calc(100% - 100px); left: 50px; bottom: 50px; }
+#smsSendFrmWrap .right > .sendWrap > .telLabel { height: 35px; line-height: 35px; float: right; font-weight: bold; color: #333; margin: 0 20px; font-size: 14px; }
+#smsSendFrmWrap .right > .sendWrap > #sendTelSelect { float: right; margin-right: 10px; }
+#smsSendFrmWrap .right > .sendWrap > .smsSubmitBtn { float: right; }
+
+#smsSendFrmWrap .right.templateList > ul { width: 100%; height: 547px; float: left; overflow-y: auto; margin-top: 20px; }
+#smsSendFrmWrap .right.templateList > ul > li { width: calc(calc(100% - 40px) / 3); float: left; margin-right: 20px; border: 1px solid #CCC; background-color: #E8E8E8; padding: 10px; margin-bottom: 20px; }
+#smsSendFrmWrap .right.templateList > ul > li > .txtBox { border: 1px solid #CCC !important; margin-bottom: 5px; }
+#smsSendFrmWrap .right.templateList > ul > li:nth-of-type(3n) { margin-right: 0; }
+
+/* 200924 일정관리 */
+#scheduleCalendarWrap { width: 100%; float: left; background-color: rgba(0, 0, 0, 0.3); padding: 10px; }
+#scheduleCalendarWrap > .titWrap { width: 100%; float: left; color: #FFF; }
+#scheduleCalendarWrap > .titWrap > .left { height: 22px; line-height: 22px; font-size: 14px; font-weight: bold; letter-spacing: -0.5px; }
+#scheduleCalendarWrap > .titWrap > .right { height: 22px; line-height: 22px; }
+#scheduleCalendarWrap > .titWrap > .right > a { font-size: 15px; color: #FFF; margin-left: 5px; opacity: 0.6; }
+#scheduleCalendarWrap > .titWrap > .right > a:hover { opacity: 1; }
+#scheduleCalendarWrap > .calendarWrap { width: 100%; float: left; background-color: rgba(0, 0, 0, 0.2); border-radius: 5px; margin-top: 10px; padding: 10px; }
+#scheduleCalendarWrap > .calendarWrap > ul { width: 100%; float: left; }
+#scheduleCalendarWrap > .calendarWrap > ul > li { width: calc(100% / 7); height: 23px; line-height: 23px; float: left; }
+
+#scheduleCalendarWrap > .calendarWrap > .labelList > li { text-align: center; color: #FFF; font-size: 13px; font-weight: 500; }
+#scheduleCalendarWrap > .calendarWrap > .dayList > li > a { width: 100%; height: 23px; line-height: 23px; float: left; text-align: center; color: #FFF; font-size: 12px; letter-spacing: 0; border-radius: 100%; opacity: 0.6; }
+#scheduleCalendarWrap > .calendarWrap > .dayList > li > a:hover { opacity: 0.8; }
+#scheduleCalendarWrap > .calendarWrap > .dayList > li > a.today { color: #FFFF66 !important; opacity: 1 !important; }
+#scheduleCalendarWrap > .calendarWrap > .dayList > li > a.active { background-color: rgba(0, 0, 0, 0.3); opacity: 1 !important; }
+
+#scheduleMainCalendarWrap { width: 100%; float: left; }
+#scheduleMainCalendarWrap > ul { width: 100%; float: left; }
+#scheduleMainCalendarWrap > ul > li { width: calc(100% / 7); float: left; text-align: center; border-right: 1px solid #EEE; }
+#scheduleMainCalendarWrap > ul > li:last-of-type { border-right: 0; }
+#scheduleMainCalendarWrap > ul > li.type0 { color: #DC3333; }
+#scheduleMainCalendarWrap > ul > li.type0 > a { color: #DC3333; }
+#scheduleMainCalendarWrap > ul > li.type6 { color: #3366CC; }
+#scheduleMainCalendarWrap > ul > li.type6 > a { color: #3366CC; }
+
+#scheduleMainCalendarWrap > .labelList > li { height: 40px; line-height: 40px; font-size: 15px; font-weight: bold; }
+
+#scheduleMainCalendarWrap > .dayList > li { height: 245px; border-bottom: 1px solid #EEE; padding: 10px; overflow: hidden; }
+#scheduleMainCalendarWrap > .dayList:last-of-type > li { border-bottom: 0; }
+
+#scheduleMainCalendarWrap > .dayList > li > .dayCalendarOpenWrap { width: 100%; float: left; text-align: center; }
+#scheduleMainCalendarWrap > .dayList > li > .dayCalendarOpenWrap > .dayCalendarOpenBtn { display: inline-block; width: 30px; height: 30px; line-height: 30px; border-radius: 100%; letter-spacing: 0; font-size: 15px; font-weight: 500; text-align: center; cursor: pointer; }
+#scheduleMainCalendarWrap > .dayList > li > .dayCalendarCntWrap { width: 100%; float: left; text-align: center; font-size: 12px; letter-spacing: 0; color: #CCC; margin-top: 3px; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap { width: 100%; height: 160px; float: left; margin-top: 10px; overflow: hidden; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li { width: 100%; height: 30px; line-height: 30px; float: left; text-align: left; font-size: 13px; padding: 0 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; border-radius: 5px; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li.sms { background-color: #DDD; color: #FFF; margin-bottom: 5px; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li.sms > span { letter-spacing: -0.5px; font-weight: 500; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li.sms > span.label { float: left; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li.sms > span.label > i { margin-right: 5px; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li.sms > span.value { float: right; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li.sms.active { cursor: pointer; background-color: #333; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li.basic { cursor: pointer; padding-left: 25px; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li.basic:hover { background-color: #F8F8F8; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li.basic > span { float: left; letter-spacing: -0.5px; color: #333; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li.basic > .circle { position: absolute; width: 8px; height: 8px; border-radius: 100%; background-color: #333; left: 10px; top: 50%; margin-top: -4px; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li.basic > .time { width: 40px; font-weight: 500; letter-spacing: 0; }
+/* 알림 표시 추가/변경 2024.10.17 문지호 */
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li.basic > .bell { width:17px; color:#cc3333; font-weight: 500; letter-spacing: 0; }
+#scheduleMainCalendarWrap > .dayList > li > .scheduleItemWrap > li.basic > .memo { width: calc(100% - 57px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#scheduleMainCalendarWrap > .dayList > li.today > .dayCalendarOpenWrap > .dayCalendarOpenBtn  { background-color: #333; color: #FFF; !important; }
+
+#scheduleMainCalendarWrap > .dayList > li.end > .dayCalendarOpenWrap > .dayCalendarOpenBtn { color: #CCC; }
+#scheduleMainCalendarWrap > .dayList > li.end > .scheduleItemWrap > li.sms { background-color: #E8E8E8 !important; }
+#scheduleMainCalendarWrap > .dayList > li.end > .scheduleItemWrap > li.basic > span { color: #DDD; }
+#scheduleMainCalendarWrap > .dayList > li.end > .scheduleItemWrap > li.basic > .circle { background-color: #EEE !important; }
+#scheduleMainCalendarWrap > .dayList > li.end > .scheduleItemWrap > li.basic:hover { background-color: #FBFBFB; }
+
+#scheduleDayCalendarWrap { position: absolute; width: 100%; min-height: calc(100% - 39px); right: -3%; top: -61px; opacity: 0; background-color: #FFF; z-index: 10; display: none; transition: right 0.5s, opacity 0.5s; }
+#scheduleDayCalendarWrap > div { width: 100%; height: 100%; float: left; }
+#scheduleDayCalendarWrap.active { opacity: 1; right: 0; }
+
+#scheduleDayCalendarWrap > div > .titWrap { width: 100%; float: left; border-bottom: 1px solid #E1E1E1; }
+#scheduleDayCalendarWrap > div > .titWrap > * { height: 60px; line-height: 60px; float: left; }
+#scheduleDayCalendarWrap > div > .titWrap > .tit { padding-left: 30px; font-size: 18px; font-weight: bold; }
+#scheduleDayCalendarWrap > div > .titWrap > .tit > i { font-size: 24px; vertical-align: middle; cursor: pointer; margin-right: 15px; top: -2px; }
+#scheduleDayCalendarWrap > div > .titWrap > .btnList { padding-right: 50px; float: right; }
+#scheduleDayCalendarWrap > div > .titWrap > .btnList > button { height: 40px; border: 1px solid rgba(0, 0, 0, 0.1); font-size: 14px; font-weight: bold; border-radius: 5px; padding: 0 20px; margin-left: 5px; }
+#scheduleDayCalendarWrap > div > .titWrap > .btnList > button > i { margin-right: 5px; }
+
+#scheduleDayCalendarWrap > div > .scheduleWrap { width: 100%; float: left; padding: 50px; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap { width: 100%; min-height: 40px; float: left; border-top: 1px solid #E8E8E8; padding: 10px 0; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .timeInfo { position: absolute; width: 80px; letter-spacing: -0.5px; font-size: 15px; font-weight: bold; color: #333; background-color: #FFF; z-index: 2; top: -12px; text-align: right; padding-right: 20px;}
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap { width: 100%; float: left; padding-left: 80px; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li { width: 100%; float: left; border-radius: 5px; background-color: #F5F5F5; margin: 3px 0; padding: 15px; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li  > .infoWrap { width: 100%; float: left; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li  > .infoWrap > .left { height: 20px; line-height: 20px; font-size: 14px; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li  > .infoWrap > .left > span { letter-spacing: -0.5px; margin-right: 20px; font-weight: 500; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li  > .infoWrap > .left > span.new { display: inline-block; background-color: #DC3333; color: #FFF; font-size: 12px; height: 19px; line-height: 19px; border-radius: 5px; padding: 0 5px; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li  > .infoWrap > .left > span > i { margin-right: 8px; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li  > .infoWrap > .right > span { float: left; height: 20px; line-height: 20px; letter-spacing: -0.5px; font-weight: 500; font-size: 14px; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li  > .infoWrap > .right > span > i { margin-right: 5px; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li  > .infoWrap > .right > .line { float: left; width: 1px; height: 12px; top: 4px; background-color: #DDD; margin-left: 20px; margin-right: 10px; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li  > .infoWrap > .right > button { height: 20px; line-height: 20px; font-size: 14px; font-weight: bold; background-color: rgba(0, 0, 0, 0); margin-left: 10px; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li  > .infoWrap > .right > button > i { margin-right: 5px; top: -2px; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li  > .memoWrap { width: 100%; float: left; font-size: 14px; margin-top: 8px; line-height: 18px; letter-spacing: -0.5px; }
+
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li.sms { background-color: #FFF; border: 1px solid #CCC; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li.sms * { color: #333; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li.basic { background-color: #FFF; border: 1px solid #333; }
+#scheduleDayCalendarWrap > div > .scheduleWrap  > .itemWrap  > .scheduleListWrap > li.basic * { color: #333; }
+
+.popup_btns {width: 50px; height: 50px; background: #fff; border-radius: 50%; text-align: center; line-height: 50px; position: absolute; top: 50%; transform: translateY(-50%); cursor: pointer; color:#c8c8c8;}
+
+.popup_btns.prev_btn {left: 15%;}
+.popup_btns.next_btn {right: 15%;}
+
+/* 노트북기준에서 버튼보일수 있도록 커스텀한 CSS */
+@media (max-width: 1750px) {
+  .popup_btns.prev_btn {left: 2%;}
+  .popup_btns.next_btn {right: 2%;}
+}
+
+.schedule_info_clock { letter-spacing: -0.5px; margin-right: 20px; font-weight: 500; }
+.schedule_info_clock > i { margin-right: 8px; }
+.schedule_regName { border: 1px solid #0975c6; padding: 4px; border-radius: 15px; padding: 1px 10px; color: #0975c6 !important; }
+.schedule_cs_info > a { color: #0975c6 !important; }
+
+/* 알림 작업_2024.10.17 문지호 */
+.schedule_info_bell { margin-right:5px!important; }
+.schedule_info_bell > i { color:#cc3333!important; }
+
+/* 25.03.27 서보원 SMS 커스텀 */
+.smsTypeBtn { width: 92px; height: 35px; line-height: 35px; float: right; font-weight: bold; font-size: 12px; color: #AEAEAE; background-color: #fff !important; text-align: center; }
+
+/* qr번호 */
+.phoneQrBtn{cursor: pointer; color: #667eea!important;}

@@ -1,0 +1,208 @@
+input[type="checkbox"] { display: none; }
+label.ch { font-size: 15px; float: left; height: 35px; line-height: 35px; margin-left: 10px; }
+label.ch > i { margin-right: 3px; }
+label.ch > .on { display: none; color: #3366CC; }
+label.ch > .off { display: inline-block; color: #CCC; }
+
+.typeMain { background-color: #333; color: #FFF !important; border: 1px solid #333 !important; }
+
+input[type="checkbox"]:checked + label.ch > .on { display: inline-block; }
+input[type="checkbox"]:checked + label.ch > .off { display: none; }
+
+#bbsContents { opacity: 0; }
+
+/* 일반형 게시판 목록 */
+.bbsListWrap { width: 100%; float: left; }
+.bbsListWrap > table { width: 100%; float: left; table-layout: fixed; }
+
+.bbsListWrap > table thead th { text-align: center; border-top: 2px solid #333; border-bottom: 1px solid #999; background-color: #FFF; font-size: 14px; font-weight: bold; height: 50px; color: #333; letter-spacing: -0.5px; }
+
+.bbsListWrap > table tbody tr { cursor: pointer; }
+.bbsListWrap > table tbody tr:hover > .title { text-decoration: underline; }
+.bbsListWrap > table tbody td { text-align: center; background-color: #FFF; font-size: 14px; font-weight: 400; height: 51px; color: #333; letter-spacing: -0.5px; border-bottom: 1px solid #EEE; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bbsListWrap > table tbody tr:last-of-type > * { border-bottom: 1px solid #333; }
+.bbsListWrap > table tbody td > .importantData { font-weight: bold; color: #FFF; background-color: #DC3333; border: 1px solid #DC3333; margin-right: 5px; padding: 1.5px 6px; border-radius: 3px; }
+.bbsListWrap > table tbody td > .comment { margin-left: 5px;  font-size: 13px; color: #DC3333; font-weight: bold; }
+
+.bbsListWrap > table tbody tr.notiRow > td { color: #DC3333; font-weight: 500; background-color: #FCFCFC; font-weight: bold; }
+
+/* 일반형 게시판 자세히보기 */
+.bbsViewWrap { width: 100%; float: left; }
+.bbsViewWrap > div { width: 100%; float: left; }
+.bbsViewWrap img { max-width: 100%; }
+
+.bbsViewWrap > .titWrap { border-bottom: 1px solid #EEE; padding-bottom: 15px; padding-top: 20px; border-top: 2px solid #333; }
+.bbsViewWrap > .titWrap > .tit { width: 100%; float: left; font-size: 18px; font-weight: bold; color: #333; letter-spacing: -1px; }
+.bbsViewWrap > .titWrap > .tit > .importantData { font-weight: 500; color: #FFF; background-color: #DC3333; border: 1px solid #DC3333; padding: 0 10px; border-radius: 3px; font-size: 15px; }
+.bbsViewWrap > .titWrap > .tit > .notiData { font-weight: bold; color: #DC3333; background-color: #FFF; border: 1px solid #DC3333; margin-right: 10px; padding: 0 10px; border-radius: 3px; font-size: 15px; }
+.bbsViewWrap > .titWrap > .regInfo { width: 100%; float: left; font-size: 14px; color: #666; margin-top: 20px; }
+.bbsViewWrap > .titWrap > .regInfo > .name { letter-spacing: -1px; font-weight: 400; margin-right: 15px; }
+.bbsViewWrap > .titWrap > .regInfo > .name > i { margin-right: 5px; }
+.bbsViewWrap > .titWrap > .regInfo > .date { letter-spacing: -0.5px; font-weight: 400; }
+
+.bbsViewWrap > .fileWrap { margin-top: 10px; -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select: none; }
+.bbsViewWrap > .fileWrap > .fileBtn { float: right; cursor: pointer; font-size: 15px; font-weight: 400; letter-spacing: -0.5px; color: #555; border: 1px solid #EEE; padding: 8px 13px; transition: border 0.5s; }
+.bbsViewWrap > .fileWrap > .fileBtn:hover { border: 1px solid #CCC; }
+.bbsViewWrap > .fileWrap > .fileBtn > i { margin-right: 7px; color: #3366CC; }
+.bbsViewWrap > .fileWrap > .fileListWrap { position: absolute; border: 1px solid #EEE; top: 100%; right: 0; background-color: #FFF; z-index: 10; width: 250px; margin-top: 10px; display: none; }
+.bbsViewWrap > .fileWrap > .fileListWrap > ul { width: 100%; float: left; padding: 15px; padding-top: 10px; }
+.bbsViewWrap > .fileWrap > .fileListWrap > ul > li { width: 100%; float: left; padding-top: 5px; }
+.bbsViewWrap > .fileWrap > .fileListWrap > ul > li > span { float: left; width: 92%; font-size: 13px; color: #666; letter-spacing: -0.5px; font-weight: 400; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.bbsViewWrap > .fileWrap > .fileListWrap > ul > li > a { float: left; width: 8%; font-size: 13px; color: #333; letter-spacing: -0.5px; font-weight: 400; text-align: right; }
+
+.bbsViewWrap > .imgWrap { margin-top: 20px; text-align: center; margin-bottom: 15px; }
+.bbsViewWrap > .imgWrap > img { max-width: 100%; vertical-align: bottom; margin-bottom: 5px; }
+
+.bbsViewWrap > .conWrap { margin-top: 20px; font-size: 15px; color: #333; letter-spacing: -0.5px; line-height: 26px; border-bottom: 1px solid #333; padding-bottom: 20px; }
+
+.commentWrap { width: 100%; float: left; margin-top: 65px; }
+
+.commentWrap > .cntWrap { width: 100%; float: left; font-weight: 500; font-size: 14px; color: #333; margin-bottom: 2px; padding: 3px; }
+.commentWrap > .commentConWrap { width: 100%; float: left; padding: 15px; padding-top: 0; background-color: #F9F9F9; }
+.commentWrap > .commentConWrap > form { width: 100%; float: left; padding-top: 15px; }
+.commentWrap > .commentConWrap > form > textarea { width: calc(100% - 130px); height: 80px; float: left; resize: none; border: 1px solid #CCC; font-weight: 400; font-size: 14px; color: #333; padding: 15px; letter-spacing: -0.5px; }
+.commentWrap > .commentConWrap > form > button { width: 120px; height: 80px; float: right; background-color: #FFF; color: #666; border: 1px solid #CCC; font-weight: bold; }
+
+.commentWrap > .commentConWrap > ul { width: 100%; float: left; }
+.commentWrap > .commentConWrap > ul > li { width: 100%; float: left; border-bottom: 1px solid #DDD; padding: 10px; }
+.commentWrap > .commentConWrap > ul > li:first-of-type { margin-top: 15px; padding-top: 0; }
+
+.commentWrap > .commentConWrap > ul > li > .infoWrap { width: 100%; float: left; }
+.commentWrap > .commentConWrap > ul > li > .infoWrap > .name { float: left; font-size: 15px; font-weight: 500; color: #555; }
+.commentWrap > .commentConWrap > ul > li > .infoWrap > .name > i { margin-right: 3px; }
+.commentWrap > .commentConWrap > ul > li > .infoWrap > .date { float: left; font-size: 13px; font-weight: 400; color: #999; letter-spacing: -0.5px; margin-left: 10px; }
+.commentWrap > .commentConWrap > ul > li > .infoWrap > .commentDeleteBtn { float: right; font-size: 14px; font-weight: 400; color: #DC3333; }
+
+.commentWrap > .commentConWrap > ul > li > .conWrap { width: 100%; float: left; margin-top: 10px; font-size: 14px; font-weight: 400; color: #333; letter-spacing: -0.5px; line-height: 21px; }
+
+/* 일반형 게시판 등록 */
+.bbsEditorWrap { width: 100%; float: left; border-top: 2px solid #333; border-bottom: 1px solid #333; }
+.bbsEditorWrap > form { width: 100%; float: left; }
+.bbsEditorWrap > form > table { width: 100%; float: left; }
+
+.bbsEditorWrap > form > table tr > * { border-bottom: 1px solid #EEE; }
+.bbsEditorWrap > form > table tr:last-of-type > * { border-bottom: 0; }
+.bbsEditorWrap > form > table th { width: 15%; background-color: #F5F5F5; text-align: left; font-size: 14px; vertical-align: top; color: #333; padding: 15px; }
+.bbsEditorWrap > form > table td { width: 85%; padding: 15px; }
+.bbsEditorWrap > form > table td > input { width: 100%; height: 35px; float: left; border: 1px solid #EEE; font-size: 14px; color: #333; padding: 0 10px; font-weight: 400; letter-spacing: -0.5px; }
+.bbsEditorWrap > form > table td > input:focus { border: 1px solid #CCC; }
+.bbsEditorWrap > form > table td > input::placeholder { color: #AAA; }
+
+.bbsFileUploadListWrap { width: 100%; float: left; border: 1px solid #CCC; }
+.bbsFileUploadListWrap > li { width: 100%; float: left; border-bottom: 1px solid #DDD; }
+.bbsFileUploadListWrap > li:last-of-type { border-bottom: 0; }
+
+.bbsFileUploadListWrap > li > * { float: left; border-right: 1px solid #DDD; }
+.bbsFileUploadListWrap > li > *:last-of-type { border-right: 0; }
+
+.bbsFileUploadListWrap > li.head { border-bottom: 1px solid #CCC; }
+.bbsFileUploadListWrap > li.head > * { text-align: center; font-size: 14px; font-weight: bold; color: #333; background-color: #F8F8F8; padding: 5px 0; }
+
+.bbsFileUploadListWrap > li.noData { text-align: center; padding: 10px; font-size: 14px; font-weight: 400; color: #AAA; width: 100% !important; }
+
+.bbsFileUploadListWrap > li > *:nth-of-type(1) { width: 70%; }
+.bbsFileUploadListWrap > li > *:nth-of-type(2) { width: 20%; text-align: center; }
+.bbsFileUploadListWrap > li > *:nth-of-type(3) { width: 10%; text-align: center; }
+.bbsFileUploadListWrap > li > *:nth-of-type(3) > i { cursor: pointer; }
+
+.bbsFileUploadListWrap > li.item > div { padding: 10px; font-size: 13px; font-weight: 400; color: #666; }
+
+.bbsFileEx { width: 100%; float: left; margin-top: 15px; font-size: 14px; margin-bottom: 5px; color: #666; }
+
+#bbsFileBtn { width: 120px; height: 35px; line-height: 35px; float: left; background-color: #DC3333; color: #FFF; font-weight: bold; font-size: 14px; text-align: center; }
+#bbsFileBtn > i { margin-right: 5px; }
+
+/* FAQ형 게시판 목록 */
+.bbsFAQWrap { width: 100%; float: left; }
+.bbsFAQWrap > ul { width: 100%; float: left; border-top: 1px solid #333; }
+.bbsFAQWrap > ul > li { width: 100%; float: left; border-bottom: 1px solid #F2F2F2; }
+.bbsFAQWrap > ul > li > div { width: 100%; float: left; }
+
+.bbsFAQWrap .titWrap { cursor: pointer; padding: 30px 20px; -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select: none; }
+.bbsFAQWrap .titWrap > .iconWrap { position: absolute; font-size: 28px; top: 19px; font-weight: 500; color: #DC3333; left: 20px; }
+.bbsFAQWrap .titWrap > .conWrap { width: 100%; float: left; padding-left: 35px; letter-spacing: -0.5px; font-weight: 400; color: #333; font-size: 15px; padding-right: 25px; line-height: 24px; text-align: left; }
+.bbsFAQWrap .titWrap > .statusWrap { position: absolute; font-size: 16px; right: 20px; top: 50%; margin-top: -12px; color: #CCC; }
+.bbsFAQWrap .titWrap > .statusWrap > .upIcon { display: none; }
+.bbsFAQWrap .titWrap > .statusWrap > .downIcon { display: inline; }
+
+.bbsFAQWrap .infoWrap { padding: 20px; background-color: #F8F8F8; display: none; border-top: 1px solid #F2F2F2; }
+.bbsFAQWrap .infoWrap > .iconWrap { position: absolute; font-size: 28px; top: 12px; font-weight: 500; color: #333; left: 20px; -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select: none; }
+.bbsFAQWrap .infoWrap > .conWrap { width: 100%; float: left; padding-left: 35px; letter-spacing: -0.5px; font-weight: 400; color: #333; font-size: 15px; padding-right: 25px; line-height: 25px; text-align: left; }
+.bbsFAQWrap .infoWrap > .conWrap img { max-width: 100%; }
+.bbsFAQWrap .infoWrap > .dateWrap { width: 100%; float: left; letter-spacing: -0.5px; font-weight: 400; color: #999; font-size: 14px; text-align: right; margin-top: 30px; }
+.bbsFAQWrap .infoWrap > .dateWrap > .label { font-weight: 400; color: #888; margin-right: 2px; }
+.bbsFAQWrap .infoWrap > .dateWrap > .label > i { margin-right: 3px; }
+.bbsFAQWrap .infoWrap > .dateWrap > a { margin-right: 15px !important; }
+
+.bbsFAQWrap .notiRow > .titWrap > .conWrap { color: #DC3333; }
+
+.bbsFAQWrap .active > .titWrap > .conWrap { font-weight: bold; }
+.bbsFAQWrap .active > .titWrap > .statusWrap > .upIcon { display: inline; }
+.bbsFAQWrap .active > .titWrap > .statusWrap > .downIcon { display: none; }
+.bbsFAQWrap .active > .infoWrap { display: block; }
+
+.bbsFAQWrap .nodata { cursor: default; color: #BBB; text-align: center; font-size: 13px; font-weight: 400; letter-spacing: -1px; padding: 30px; }
+
+/* 페이징 */
+.bbsPagingWrap { width: 100%; float: left; text-align: center; margin-top: 30px; }
+.bbsPagingWrap > li { display: inline-block; text-align: center; }
+.bbsPagingWrap > li > * { font-size: 14px; float: left; letter-spacing: -0.5px; padding: 3px 10px; font-weight: 500; }
+.bbsPagingWrap > li > span { border: 1px solid #333; color: #333; margin-right: -1px; z-index: 1; }
+.bbsPagingWrap > li > a { border: 1px solid #D7D7D7; color: #666; border-right: 0; }
+
+.bbsPagingWrap > li:last-of-type > a { border-right: 1px solid #D7D7D7 !important; }
+
+.bbsPagingWrap > li:first-of-type > * { border-radius: 7px 0 0 7px; }
+.bbsPagingWrap > li:last-of-type > * { border-radius: 0 7px 7px 0; }
+
+.bbsPagingWrap > li > a:hover { background-color: #F8F8F8; }
+
+/* 목록 설정 */
+.bbsListSetWrap { width: 100%; float: left; margin-bottom: 10px; }
+.bbsListSetWrap > select { float: right; border: 1px solid #EEE; font-weight: 400; letter-spacing: -0.5px; color: #333; font-size: 14px; height: 35px; padding: 0 7px; }
+.bbsListSetWrap > select:focus { border: 1px solid #CCC; }
+
+/* 검색 */
+.bbsSearchWrap { width: 100%; float: left; margin-top: 50px; }
+.bbsSearchWrap > ul { width: 100%; float: left; border: 1px solid #EEE; text-align: center; padding: 35px; }
+.bbsSearchWrap > ul > li { display: inline-block; margin: 0 2px; }
+
+.bbsSearchWrap select { border: 1px solid #F2F2F2; font-weight: 400; letter-spacing: -1px; color: #333; font-size: 14px; height: 40px; padding: 0 7px; width: 120px; }
+.bbsSearchWrap select:focus { border: 1px solid #DDD !important; }
+.bbsSearchWrap input { border: 1px solid #F2F2F2; font-weight: 400; letter-spacing: -1px; color: #333; font-size: 14px; height: 40px; padding: 0 7px; width: 400px; }
+.bbsSearchWrap input:focus { border: 1px solid #DDD !important; }
+.bbsSearchWrap button { border: 1px solid #333; font-weight: 500; letter-spacing: -1px; color: #FFF; font-size: 14px; height: 40px; padding: 0 7px; width: 80px; background-color: #333; }
+
+/* 이전글다음글 */
+.bbsNavigationWrap { width: 100%; float: left; margin-top: 50px; }
+.bbsNavigationWrap > table { width: 100%; float: left; table-layout: fixed; border-top: 1px solid #F2F2F2; }
+.bbsNavigationWrap > table tr { cursor: pointer; }
+.bbsNavigationWrap > table tr:hover > .title { text-decoration: underline; }
+.bbsNavigationWrap > table tr > * { border-bottom: 1px solid #F2F2F2; text-align: center; font-size: 13px; color: #666; font-weight: 400; letter-spacing: -0.5px; height: 40px; }
+.bbsNavigationWrap > table i { color: #3366CC; }
+
+/* 버튼영역 */
+.bbsBtnWrap { width: 100%; float: left; padding-top: 15px; }
+.bbsBtnWrap > .left { float: left; }
+.bbsBtnWrap > .left > * { float: left; margin-right: 5px; }
+.bbsBtnWrap > .right { float: right; }
+.bbsBtnWrap > .right > * { float: left; margin-left: 5px; }
+
+.bbsBtnWrap > div > * { font-size: 15px; font-weight: 400; letter-spacing: -1px; color: #555; border: 1px solid #EEE; padding: 6px 14px; transition: border 0.5s; }
+.bbsBtnWrap > div > * > i { margin-right: 5px; }
+.bbsBtnWrap > div > *:hover { border: 1px solid #CCC; }
+
+.bbsBtnWrap > div > .main { border: 1px solid #333; background-color: #333; color: #FFF; }
+.bbsBtnWrap > div > .main:hover { border: 1px solid #000; }
+
+/* 존재하지 않는 데이터 */
+.bbsNoDataWrap { width: 100%; float: left; padding: 50px 0; border-bottom: 1px solid #EEE; }
+.bbsNoDataWrap > div { text-align: center; width: 100%; float: left; }
+
+.bbsNoDataWrap > .conWrap { font-size: 18px; font-weight: 400; letter-spacing: -1px; color: #666; }
+.bbsNoDataWrap > .conWrap > b { font-weight: 500; color: #DC3333; margin-right: 5px; }
+
+.bbsNoDataWrap > .iconWrap { height: 200px; }
+.bbsNoDataWrap > .iconWrap > i { font-size: 150px; position: absolute; left: 25%; top: 0; color: #CCC; opacity: 0; transition: all 0.5s; margin-left: 0; }
+.bbsNoDataWrap > .iconWrap > i.active { left: 50%; opacity: 1; margin-left: -93.5px; }
+.bbsNoDataWrap > .iconWrap > i.activeEnd { left: 70%; opacity: 0; margin-left: 0; }

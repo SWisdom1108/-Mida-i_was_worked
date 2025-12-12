@@ -1,0 +1,118 @@
+input[type="checkbox"] { display: none; }
+label.ch { font-size: 15px; float: left; height: 35px; line-height: 35px; margin-left: 10px; }
+label.ch > i { margin-right: 3px; }
+label.ch > .on { display: none; color: #3366CC; }
+label.ch > .off { display: inline-block; color: #CCC; }
+
+.typeMain { background-color: #333; color: #FFF !important; border: 1px solid #333 !important; }
+
+input[type="checkbox"]:checked + label.ch > .on { display: inline-block; }
+input[type="checkbox"]:checked + label.ch > .off { display: none; }
+
+#bbsContents { opacity: 0; }
+
+/* 일반형 게시판 목록 */
+.bbsListWrap { width: 100%; float: left; }
+.bbsListWrap > ul { width: 100%; float: left; }
+
+.bbsListWrap > .basic { border-bottom: 1px solid #EEE; display: table; padding: 10px 0; }
+.bbsListWrap > .basic:first-of-type { padding-top: 0; }
+.bbsListWrap > .basic > li { display: table-cell; }
+
+.bbsListWrap > .basic > .bbsInfo { width: calc(100% - 50px); padding-right: 10px; vertical-align: top; }
+.bbsListWrap > .basic > .bbsInfo > .tit { width: 100%; float: left; font-size: 15px; font-weight: 500; }
+.bbsListWrap > .basic > .bbsInfo > .user { float: left; font-size: 12px; color: #999; margin-right: 10px; }
+.bbsListWrap > .basic > .bbsInfo > .date { float: left; font-size: 12px; color: #999; margin-right: 10px; letter-spacing: -0.5px; }
+.bbsListWrap > .basic > .bbsInfo > .view { float: left; font-size: 12px; color: #999; letter-spacing: -0.5px; }
+
+.bbsListWrap > .basic > .commentInfo { width: 50px; background-color: #F5F5F5; border-radius: 5px; vertical-align: middle; text-align: center; padding: 10px 0; }
+.bbsListWrap > .basic > .commentInfo > .cnt { width: 100%; float: left; font-size: 14px; letter-spacing: -0.5px; font-weight: bold; color: #000; }
+.bbsListWrap > .basic > .commentInfo > .label { width: 100%; float: left; font-size: 12px; color: #999; }
+
+.bbsListWrap > .notice > .bbsInfo > .tit { color: #DC3333; }
+.bbsListWrap > .notice > .bbsInfo > .tit > i { margin-right: 5px; }
+
+.bbsListWrap > .noData { width: 100%; float: left; margin-top: 20px; border: 1px solid #EEE; text-align: center; padding: 20px; font-size: 13px; color: #999; }
+
+/* 일반형 게시판 자세히보기 */
+.bbsViewWrap { width: 100%; float: left; }
+
+.bbsViewWrap > .titWrap { width: 100%; float: left; border-bottom: 1px solid #EEE; padding-bottom: 10px; }
+.bbsViewWrap > .titWrap > .tit { width: 100%; float: left; font-size: 17px; font-weight: 500; margin-bottom: 10px; color: #000; }
+.bbsViewWrap > .titWrap > .regInfo { width: 100%; float: left; }
+.bbsViewWrap > .titWrap > .regInfo > i { width: 35px; font-size: 32px; float: left; color: #666; }
+.bbsViewWrap > .titWrap > .regInfo > span { width: calc(100% - 35px); float: left; padding-left: 5px; }
+.bbsViewWrap > .titWrap > .regInfo > .name { font-size: 13px; }
+.bbsViewWrap > .titWrap > .regInfo > .etc { font-size: 12px; letter-spacing: 0; top: -4px; color: #999; }
+
+.bbsViewWrap > .conWrap { width: 100%; float: left; margin-top: 10px; }
+
+.commentWrap { width: 100%; float: left; border: 1px solid #EEE; margin-top: 10px; }
+
+.commentWrap > .cntWrap { width: 100%; float: left; font-weight: 500; font-size: 13px; color: #333; border-bottom: 1px solid #EEE; padding: 10px; }
+.commentWrap > .cntWrap > i { margin-left: 5px; }
+
+.commentWrap > .commentConWrap { width: 100%; float: left; padding: 10px; padding-top: 0; }
+
+.commentWrap > .commentConWrap > form { width: 100%; float: left; }
+.commentWrap > .commentConWrap > form > textarea { width: calc(100% - 80px); height: 50px; float: left; resize: none; border: 1px solid #DDD; font-weight: 400; font-size: 12px; color: #333; padding: 5px 10px; letter-spacing: -0.5px; border-right: 0; }
+.commentWrap > .commentConWrap > form > button { width: 80px; height: 50px; float: right; background-color: #EEE; color: #333; border: 1px solid #DDD; font-weight: bold; font-size: 12px; }
+
+.commentWrap > .commentConWrap > ul { width: 100%; float: left; padding-top: 10px; }
+.commentWrap > .commentConWrap > ul > li { width: 100%; float: left; border-bottom: 1px solid #F2F2F2; padding: 10px 5px; }
+.commentWrap > .commentConWrap > ul > li:last-of-type { border-bottom: 0; }
+.commentWrap > .commentConWrap > ul > li:first-of-type { padding-top: 0; }
+
+.commentWrap > .commentConWrap > ul > li > .infoWrap { width: 100%; float: left; }
+.commentWrap > .commentConWrap > ul > li > .infoWrap > .name { float: left; font-size: 13px; font-weight: 500; color: #555; }
+.commentWrap > .commentConWrap > ul > li > .infoWrap > .name > i { margin-right: 5px; }
+.commentWrap > .commentConWrap > ul > li > .infoWrap > .date { float: left; font-size: 11px; font-weight: 400; color: #999; letter-spacing: -0.5px; margin-left: 10px; top: 1px; }
+.commentWrap > .commentConWrap > ul > li > .infoWrap > .commentDeleteBtn { float: right; font-size: 12px; font-weight: 400; color: #DC3333; }
+
+.commentWrap > .commentConWrap > ul > li > .conWrap { width: 100%; float: left; margin-top: 5px; font-size: 12px; font-weight: 400; color: #333; letter-spacing: -0.5px; line-height: 18px; }
+
+/* 페이징 */
+.bbsPagingWrap { width: 100%; float: left; text-align: center; margin-top: 20px; }
+.bbsPagingWrap > li { display: inline-block; text-align: center; }
+.bbsPagingWrap > li > * { font-size: 14px; float: left; letter-spacing: -0.5px; padding: 3px 10px; font-weight: 500; }
+.bbsPagingWrap > li > span { border: 1px solid #CCC; color: #999; margin-right: -1px; z-index: 1; }
+.bbsPagingWrap > li > a { border: 1px solid #EEE; color: #AAA; border-right: 0; }
+
+.bbsPagingWrap > li:last-of-type > a { border-right: 1px solid #EEE !important; }
+
+.bbsPagingWrap > li:first-of-type > * { border-radius: 7px 0 0 7px; }
+.bbsPagingWrap > li:last-of-type > * { border-radius: 0 7px 7px 0; }
+
+.bbsPagingWrap > li > a:hover { background-color: #F8F8F8; }
+
+/* 목록 설정 */
+.bbsListSetWrap { display: none; }
+
+/* 검색 */
+.bbsSearchWrap { display: none; }
+
+/* 버튼영역 */
+.bbsBtnWrap { width: 100%; float: left; padding-top: 10px; }
+.bbsBtnWrap > .left { float: left; }
+.bbsBtnWrap > .left > * { float: left; margin-right: 5px; }
+.bbsBtnWrap > .right { float: right; }
+.bbsBtnWrap > .right > * { float: left; margin-left: 5px; }
+
+.bbsBtnWrap > div > * { font-size: 13px; font-weight: 400; letter-spacing: -1px; color: #555; border: 1px solid #EEE; padding: 6px 14px; transition: border 0.5s; }
+.bbsBtnWrap > div > * > i { margin-right: 5px; }
+.bbsBtnWrap > div > *:hover { border: 1px solid #CCC; }
+
+.bbsBtnWrap > div > .main { border: 1px solid #333; background-color: #333; color: #FFF; }
+.bbsBtnWrap > div > .main:hover { border: 1px solid #000; }
+
+/* 존재하지 않는 데이터 */
+.bbsNoDataWrap { width: 100%; float: left; padding: 50px 0; border-bottom: 1px solid #EEE; }
+.bbsNoDataWrap > div { text-align: center; width: 100%; float: left; }
+
+.bbsNoDataWrap > .conWrap { font-size: 18px; font-weight: 400; letter-spacing: -1px; color: #666; }
+.bbsNoDataWrap > .conWrap > b { font-weight: 500; color: #DC3333; margin-right: 5px; }
+
+.bbsNoDataWrap > .iconWrap { height: 200px; }
+.bbsNoDataWrap > .iconWrap > i { font-size: 150px; position: absolute; left: 25%; top: 0; color: #CCC; opacity: 0; transition: all 0.5s; margin-left: 0; }
+.bbsNoDataWrap > .iconWrap > i.active { left: 50%; opacity: 1; margin-left: -93.5px; }
+.bbsNoDataWrap > .iconWrap > i.activeEnd { left: 70%; opacity: 0; margin-left: 0; }

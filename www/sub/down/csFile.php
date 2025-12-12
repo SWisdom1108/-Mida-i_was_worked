@@ -1,0 +1,15 @@
+<?php include $_SERVER['DOCUMENT_ROOT']."/mida/db/config.php"; ?>
+<?php
+
+	$idx = $_GET['idx'];
+	$value = array(':idx'=>$idx);
+	$query = "SELECT filename, filename_r FROM mt_db_cs_log WHERE use_yn = 'Y' AND idx = :idx";
+	$view = view_pdo($query, $value);
+	$filePath = "{$_SERVER['DOCUMENT_ROOT']}upload/{$view["filename"]}";
+	$fileName = $view['filename_r'];
+
+	if(!downloadFile($filePath, $fileName)) {
+		echo "<script>alert('다운로드를 실패하였습니다.'); parent.location.reload();</script>";
+	} 
+
+?>
